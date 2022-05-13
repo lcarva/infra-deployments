@@ -25,5 +25,25 @@ configMapGenerator:
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
+# This is done in this file so it can override the commonAnnotations above. Otherwise,
+# it gets overwritten by kustomize. It also has to be done as patchesJSON6902 because
+# this transformer runs after annotations transformer:
+# https://github.com/kubernetes-sigs/kustomize/issues/3046
+patchesJSON6902:
+- target:
+    kind: Deployment
+    name: tekton-chains-controller
+    namespace: tekton-chains
+  # Note that ~1 below is how to represent an escaped /
+  # See: http://jsonpatch.com/#json-pointer
+  patch: |-
+    - op: replace
+      path: /metadata/annotations/argocd.argoproj.io~1sync-options
+      # This is needed to ensure updates to immutable fields are properly applied.
+      # Actually... this doesn't seem to be working as expected, see:
+      # https://github.com/argoproj/argo-cd/issues/5882
+      value: Replace=true
+
+# value: SkipDryRunOnMissingResource=true,Replace=true
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
