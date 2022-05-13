@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: tekton-chains-controller
   namespace: tekton-chains
+  annotations:
+    # Avoid upgrade issues due to changing immutable attributes such as label selector.
+    argocd.argoproj.io/sync-options: Replace=true
 spec:
   template:
     spec:
