@@ -88,6 +88,20 @@ SPI Vault instance has to be manually initialized. There is a script to help wit
 2) Clone SPI operator repo `git clone https://github.com/redhat-appstudio/service-provider-integration-operator && cd service-provider-integration-operator`
 3) run `vault-init.sh` script from repo root directory `./hack/vault-init.sh`
 
+### Optional: Use SharedSecret with Tekton Chains
+
+During the build pipeline, it is possible to use the `redhat-appstudio-user-workload`
+[SharedSecret](https://github.com/openshift/csi-driver-shared-resource) to specify the credentials
+for pushing container images. If this is used, Tekton Chains must also be configured to use the
+same `SharedSecret`. This is done by default. However, the `Secret` referred to by the
+`SharedSecret` may not exist at bootstrap time. If the underlying `Secret` is created, or modified
+in any way, the changes will NOT be picked up by Tekton Chains. Whenever a modification is done,
+delete the Tekton Chains controller pod to cause it to restart and pick up the new changes:
+
+```
+oc -n tekton-chains delete pods -l app=tekton-chains-controller
+```
+
 ### Install Toolchain (Sandbox) Operators
 There are two scripts which you can use:
 - `./hack/sandbox-development-mode.sh` for development mode
