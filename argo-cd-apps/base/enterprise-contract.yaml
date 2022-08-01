@@ -21,6 +21,8 @@ spec:
             hostname: rekor-server.enterprise-contract-service.svc
             annotations:
               route.openshift.io/termination: "edge"
+          attestation_storage:
+            enabled: false
         mysql:
           auth:
             password: "password"
