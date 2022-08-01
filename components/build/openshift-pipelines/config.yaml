@@ -20,6 +20,8 @@ spec:
     enable-api-fields: stable
     enable-custom-tasks: false
     disable-affinity-assistant: false
+    # disable-home-env-overwrite: true
+    # disable-working-directory-overwrite: true
   pruner:
     keep: 10
     resources:
