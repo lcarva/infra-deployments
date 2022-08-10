@@ -2,13 +2,13 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- https://github.com/hacbs-contract/enterprise-contract-controller/config/crd?ref=ad91c7378251f0647fd8505cf15621b99634f3da
+- https://github.com/lcarva/enterprise-contract-controller/config/crd?ref=0d6e44c48490ff816deee128b37c4b62ed4a8512
 # Kustomize does not allow github.com urls that reference a single-file. They must always reference
 # a directory that contains a kustomization.yaml file. The directory /config/rbac does include a
 # kustomization.yaml file but it includes many other RBAC changes that are not desirable here. Use
 # a URL to the "raw" version of the file instead.
-- https://raw.githubusercontent.com/hacbs-contract/enterprise-contract-controller/ad91c7378251f0647fd8505cf15621b99634f3da/config/rbac/enterprisecontractpolicy_viewer_role.yaml
-- https://raw.githubusercontent.com/hacbs-contract/enterprise-contract-controller/ad91c7378251f0647fd8505cf15621b99634f3da/config/rbac/enterprisecontractpolicy_editor_role.yaml
+- https://raw.githubusercontent.com/lcarva/enterprise-contract-controller/0d6e44c48490ff816deee128b37c4b62ed4a8512/config/rbac/enterprisecontractpolicy_viewer_role.yaml
+- https://raw.githubusercontent.com/lcarva/enterprise-contract-controller/0d6e44c48490ff816deee128b37c4b62ed4a8512/config/rbac/enterprisecontractpolicy_editor_role.yaml
 - .tekton/
 
 images:
