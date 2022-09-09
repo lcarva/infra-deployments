@@ -17,6 +17,13 @@ patches:
     - op: replace
       path: /spec/to/name
       value: spi-vault
+- target:
+    kind: StatefulSet
+    name: vault
+  patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/image
+      value: docker.io/hashicorp/vault:1.10.3
 
 patchesStrategicMerge:
   - |-
