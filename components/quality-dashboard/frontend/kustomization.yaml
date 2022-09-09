@@ -1,15 +1,12 @@
 resources:
-- service-account.yaml
-- deployment.yaml
-- service.yaml
-- route.yaml
-
+  - service-account.yaml
+  - deployment.yaml
+  - service.yaml
+  - route.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 namespace: quality-dashboard
-
 configMapGenerator:
-- name: quality-dashboard-configmap
-  literals:
-  - BACKEND_ROUTE=https://quality-backend-route-quality-dashboard.apps.appstudio-stage.x99m.p1.openshiftapps.com
+  - name: quality-dashboard-configmap
+    literals:
+      - BACKEND_ROUTE=https://quality-backend-route-quality-dashboard.apps.https://console-openshift-console.zregvart-hacbs-cluster-153f1de160110098c1928a6c05e19444-0000.eu-de.containers.appdomain.cloud

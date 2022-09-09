@@ -2,7 +2,7 @@
   {
     "op": "replace",
     "path": "/data/VAULTHOST",
-    "value": "https://spi-vault-spi-system.apps.appstudio-stage.x99m.p1.openshiftapps.com"
+    "value": "https://spi-vault-spi-system.zregvart-hacbs-cluster-153f1de160110098c1928a6c05e19444-0000.eu-de.containers.appdomain.cloud"
   },
   {
     "op": "replace",
