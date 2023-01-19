@@ -8,6 +8,7 @@ resources:
   # a URL to the "raw" version of the file instead.
   - https://raw.githubusercontent.com/hacbs-contract/enterprise-contract-controller/f390159f6b5323ca2168ee2cbcf9537841084928/config/rbac/enterprisecontractpolicy_viewer_role.yaml
   - https://raw.githubusercontent.com/hacbs-contract/enterprise-contract-controller/f390159f6b5323ca2168ee2cbcf9537841084928/config/rbac/enterprisecontractpolicy_editor_role.yaml
+  - default-ecp.yaml
 generatorOptions:
   disableNameSuffixHash: true
 configMapGenerator:
