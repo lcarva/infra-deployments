@@ -2,14 +2,14 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 # Skip applying the Tekton/PaC operands while the Tekton/PaC operator is being installed.
-# See more information about this option, here: 
-# https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/#skip-dry-run-for-new-custom-resources-types 
+# See more information about this option, here:
+# https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/#skip-dry-run-for-new-custom-resources-types
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
 resources:
-  - git::https://github.com/openshift-pipelines/pipeline-service.git/developer/openshift/gitops/argocd/pipeline-service?ref=e9c5d3d54095f2c63990788e2f2e21f37a7540f7
-  - git::https://github.com/openshift-pipelines/pipeline-service.git/developer/openshift/gitops/argocd/pipeline-service-storage?ref=e9c5d3d54095f2c63990788e2f2e21f37a7540f7
+  - git::https://github.com/lcarva/pipeline-service.git/developer/openshift/gitops/argocd/pipeline-service?ref=97803d7e25fbefd8a42dbbd49c4942c22fce4b35
+  - git::https://github.com/lcarva/pipeline-service.git/developer/openshift/gitops/argocd/pipeline-service-storage?ref=97803d7e25fbefd8a42dbbd49c4942c22fce4b35
   - ../base/servicemonitors
 
 patches:
